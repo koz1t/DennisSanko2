@@ -1,0 +1,34 @@
+@import 'abstracts/variables';
+@import 'abstracts/placeholders';
+@import 'abstracts/animations';
+
+@import 'vendors/reset';
+
+@import 'base/base';
+@import 'base/typography';
+
+@import 'layout/container';
+@import 'layout/nav';
+@import 'layout/bg';
+@import 'layout/contacts-list';
+@import 'layout/socials-list';
+@import 'layout/quotation-list';
+@import 'layout/partners-list';
+@import 'layout/header';
+@import 'layout/footer';
+@import 'layout/cards';
+@import 'layout/tabs';
+@import 'layout/timeline';
+@import 'layout/employees-list';
+@import 'layout/payments-list';
+@import 'layout/popup';
+
+@import 'components/logo';
+@import 'components/btn';
+@import 'components/burger-btn';
+@import 'components/section-title';
+@import 'components/feedback-form';
+@import 'components/custom-select';
+@import 'components/typing-text';
+
+@import 'pages/home';

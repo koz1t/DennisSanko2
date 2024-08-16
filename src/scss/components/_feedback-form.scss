@@ -1,0 +1,151 @@
+.feedback-form {
+  &__title {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 3.5rem; 
+    color: $primaryColor;
+    &:not(:last-child) {
+      margin-bottom: 2.5rem;
+    }
+  }
+  &__inputs {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.25rem;
+    &-row {
+      display: flex;
+      gap: 1.62rem;
+    }
+  }
+  &__input {
+    display: flex;
+    flex-direction: row-reverse;
+    column-gap: 0.75rem;
+    width: 100%;
+    padding: 1.38rem 1.62rem;
+    color: #8EA4AC;
+    background: #fff;
+    border: 0.0625rem solid #CDE2E7;
+    border-radius: 0.5rem;
+    transition: 0.3s all;
+    input {
+      width: 100%;
+      &::placeholder {
+        color: #8EA4AC;
+      }
+    }
+    &:has(input:focus) {
+      box-shadow: 0 0 1rem 0 darken(#CDE2E7, 5%);
+    }
+
+    &.--error {
+      border-color: red;
+    }
+  }
+  &__mark {
+    &:not(:first-child) {
+      margin-top: 0.5rem;
+    }
+    &.--error {
+      color: red;
+    }
+  }
+  &__submit {
+    width: 100%;
+    &:not(:first-child) {
+      margin-top: 2.5rem;
+    }
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
+  &__form.sent {
+    .feedback-form__submit {
+      display: none;
+    }
+  }
+  &__success {
+    @extend %flex-column;
+    font-size: 1.25rem;
+    line-height: normal;
+    color: $primaryColor;
+    b, strong {
+      font-size: 2.25rem;
+      font-weight: 800;
+    }
+    &:not(:first-child) {
+      margin-top: 2.25rem;
+    }
+  }
+  &__form:not(.sent) .feedback-form__success {
+    display: none;
+  }
+}
+
+@media (max-width: 991px) {
+  .feedback-form {
+    &__title {
+      font-size: 2.8rem;
+      line-height: 3rem; 
+      &:not(:last-child) {
+        margin-bottom: 2.3rem;
+      }
+    }
+  } 
+}
+
+@media (max-width: 480px) {
+  .feedback-form {
+    &__title {
+      font-size: 2.3rem;
+      line-height: 2.5rem; 
+    }
+    &__inputs {
+      row-gap: 0.87rem;
+      &-row {
+        flex-direction: column;
+        gap: 0.87rem;
+      }
+    }
+    &__input {
+      padding: 1.25rem 1.62rem;
+    }
+    &__mark {
+      &:not(:first-child) {
+        margin-top: 0.38rem;
+      }
+    }
+    &__submit {
+      &:not(:first-child) {
+        margin-top: 1.25rem;
+      }
+    }
+    &__success {
+      font-size: 1.1rem;
+      b, strong {
+        font-size: 1.6rem;
+      }
+      &:not(:first-child) {
+        margin-top: 1.25rem;
+      }
+    } 
+  } 
+}
+
+@media (max-width: 360px) {
+  .feedback-form {
+    &__title {
+      font-size: 1.625rem;
+      line-height: 2.125rem;
+    }
+  } 
+}
+
+
+// CONTACT FORM 7
+.screen-reader-response {
+  display: none !important;
+}
+.feedback-form__form.sent .wpcf7-response-output {
+  display: none;
+}
