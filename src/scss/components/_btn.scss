@@ -19,20 +19,6 @@
   &:active {
     transform: scale(0.99);
   }
-
-  &--arrow {
-    &::after {
-      content: '';
-      display: block;
-      width: 1rem;
-      height: 1rem;
-      background: url("../images/common/arrow.svg") no-repeat center / contain;
-      transition: 0.4s all;
-    }
-    &:hover::after {
-      transform: translateX(10%);
-    }
-  }
 }
 
 @media (max-width: 480px) {

@@ -106,7 +106,10 @@
 
       <section class="hero-section">
         <div class="bg bg--hole">
-          <img src="images/banners/1.jpg" alt="">
+          <picture>
+            <source srcset="images/hero-bg-mobile.jpg" media="(max-width: 480px)">
+            <img src="images/hero-bg.png" alt="">
+          </picture>
         </div>
         <div class="hero-section__container container">
           <div class="hero-section__row">
@@ -116,23 +119,35 @@
                 <p>23 года я помогаю собственникам менять их компании в разных сферах бизнеса на разных материках.</p>
                 <p>Одна из самых деликатных задач - работа на стыке бизнеса и личности собственника. Эта работа часто проходит в формате индивидуального коучинга.</p>
               </div>
-              <div class="hero-section__cards">
-                <div class="hero-section__card">
-                  <div class="hero-section__card-title">15 лет опыта</div>
-                  <div class="hero-section__card-text"><p>разработки стратегий, выхода на международные рынки, реорганизации компаний.</p></div>
-                </div>
-                <div class="hero-section__card">
-                  <div class="hero-section__card-title">Опыт в 14 отраслях</div>
-                  <div class="hero-section__card-text"><p>включая IT, FMCG, автопром, пищевую и непищевую розницу</p></div>
-                </div>
-                <div class="hero-section__card">
-                  <div class="hero-section__card-title">Cертификации в коучинге</div>
-                  <div class="hero-section__card-text"><p>сертифицированный топ-менеджмент коуч и карьерный коуч от The Academies, USA, ICF</p></div>
-                </div>
+              <div class="cards">
+                <ul class="cards__list">
+                  <li class="cards__item">
+                    <b>15 лет<br> опыта</b>
+                    разработки стратегий, выхода на международные рынки, реорганизации компаний.
+                  </li>
+                  <li class="cards__item">
+                    <b>Опыт<br> в 14 отраслях</b>
+                    включая IT, FMCG, автопром, пищевую и непищевую розницу
+                  </li>
+                  <li class="cards__item">
+                    <b>Cертификации<br> в коучинге</b>
+                    сертифицированный топ-менеджмент коуч и карьерный коуч от The Academies, USA, ICF
+                  </li>
+                </ul>
+                <ul class="cards__pagination">
+                  <li class="cards__pagination-item"></li>
+                  <li class="cards__pagination-item"></li>
+                  <li class="cards__pagination-item"></li>
+                  <li class="cards__pagination-item"></li>
+                  <li class="cards__pagination-item"></li>
+                </ul>
               </div>
             </div>
             <div class="hero-section__image">
-              <img src="images/hero.png" alt="">
+              <picture>
+                <source srcset="images/hero-mobile.png" media="(max-width: 480px)">
+                <img src="images/hero.png" alt="">
+              </picture>
             </div>
           </div>
           <ul class="hero-section__partners-list partners-list" id="partners-list-1">
@@ -182,6 +197,11 @@
             <li class="partners-list__item"><a href="#" target="_blank"><img src="images/partners/tatneft.svg" alt=""></a></li>
           </ul>
           <!-- <script>const partnersList = document.querySelector('.partners-list');const images = partnersList.querySelectorAll('img');const canvas = document.createElement('canvas');const ctx = canvas.getContext('2d');const spacing = 50;const imgHeight = 100;let totalWidth = 0;let loadedImages = 0;images.forEach(img => {  img.onload = function () {    const aspectRatio = img.width / img.height;    const imgWidth = imgHeight * aspectRatio;    totalWidth += imgWidth + spacing;    loadedImages++;    if (loadedImages === images.length) {      createCanvas();    }  };});function createCanvas() {  canvas.width = totalWidth;  canvas.height = imgHeight;  let x = 0;  images.forEach(img => {    const aspectRatio = img.width / img.height;    const imgWidth = imgHeight * aspectRatio;    ctx.drawImage(img, x, 0, imgWidth, imgHeight);    x += imgWidth + spacing;  });  const imgData = canvas.toDataURL('image/png');  partnersList.style.backgroundImage = `url(${imgData})`;  const containerHeight = partnersList.clientHeight;  const proportionalWidth = (canvas.width / canvas.height) * containerHeight;  const styleSheet = document.styleSheets[0];  const keyframes = `    @keyframes scrollBackground {      from {        background-position: 0 0;      }       to {        background-position: -${proportionalWidth}px 0;}}`;  styleSheet.insertRule(keyframes, styleSheet.cssRules.length);  partnersList.style.animation = `scrollBackground 30s linear infinite`;}</script> -->
+          <script>
+            const createImageFromElements = (containerClass, animationClass, backgroundPosition) => { const containers = document.querySelectorAll(containerClass); containers.forEach(container => { const images = container.querySelectorAll('img'); const canvas = document.createElement('canvas'); const ctx = canvas.getContext('2d'); let totalWidth = 0; let maxHeight = 0; images.forEach(img => { img.onload = () => { totalWidth += img.width; if (img.height > maxHeight) { maxHeight = img.height; } if (totalWidth > 0 && maxHeight > 0) { canvas.width = totalWidth; canvas.height = maxHeight; let x = 0; images.forEach(img => { ctx.drawImage(img, x, 0); x += img.width; }); const dataURL = canvas.toDataURL(); container.style.backgroundImage = `url(${dataURL})`; container.style.backgroundPosition = backgroundPosition; container.classList.add(animationClass); } }; }); }); const styleSheet = document.styleSheets[0]; if (animationClass === 'scrollBackgroundLeft') { styleSheet.insertRule(` @keyframes scrollBackgroundLeft { 0% { background-position: 0 0; } 100% { background-position: -100% 0; } } `, styleSheet.cssRules.length); styleSheet.insertRule(` .scrollBackgroundLeft { animation: scrollBackgroundLeft 10s linear infinite; } `, styleSheet.cssRules.length); } else if (animationClass === 'scrollBackgroundRight') { styleSheet.insertRule(` @keyframes scrollBackgroundRight { 0% { background-position: 0 0; } 100% { background-position: 100% 0; } } `, styleSheet.cssRules.length); styleSheet.insertRule(` .scrollBackgroundRight { animation: scrollBackgroundRight 10s linear infinite; } `, styleSheet.cssRules.length); } }; 
+            createImageFromElements('#partners-list-1', 'scrollBackgroundLeft', '0 0'); 
+            createImageFromElements('#partners-list-2', 'scrollBackgroundRight', '0 0'); 
+          </script>
         </div>
       </section>
       <!-- /hero-section -->
@@ -189,24 +209,33 @@
       <section class="help-section">
         <div class="help-section__container container">
           <div class="help-section__left">
-            <h2 class="help-section__section-title section-title">С чем могу помочь</h2>
+            <h2 class="help-section__section-title section-title">С чем<br> могу помочь</h2>
             <div class="help-section__image">
               <img src="images/help.jpg" alt="">
             </div>
           </div>
-          <div class="help-section__cards">
-            <div class="help-section__card">Повышение личной эффективности</div>
-            <div class="help-section__card">Решение сложных задач, требующих нетипичного подхода</div>
-            <div class="help-section__card">Определение приоритетов в ситуации сложного выбора</div>
-            <div class="help-section__card">Преодоление трудностей с принятием решений</div>
-            <div class="help-section__card">Преодоление внутренних конфликтов или барьеров</div>
-            <div class="help-section__card">Развитие подчиненных</div>
+          <div class="cards cards--v2">
+            <ul class="cards__list">
+              <li class="cards__item"><p>Повышение личной эффективности</p></li>
+              <li class="cards__item"><p>Решение сложных задач, требующих нетипичного подхода</p></li>
+              <li class="cards__item"><p>Определение приоритетов в ситуации сложного выбора</p></li>
+              <li class="cards__item"><p>Преодоление трудностей с принятием решений</p></li>
+              <li class="cards__item"><p>Преодоление внутренних конфликтов или барьеров</p></li>
+              <li class="cards__item"><p>Развитие подчиненных</p></li>
+            </ul>
+            <ul class="cards__pagination">
+              <li class="cards__pagination-item"></li>
+              <li class="cards__pagination-item"></li>
+              <li class="cards__pagination-item"></li>
+              <li class="cards__pagination-item"></li>
+              <li class="cards__pagination-item"></li>
+            </ul>
           </div>
         </div>
       </section>
       <!-- /help-section -->
 
-      <section class="mind-section">
+      <!-- <section class="mind-section">
         <div class="bg">
           <img src="images/mind.jpg" alt="">
         </div>
@@ -217,7 +246,7 @@
             <p>Он приносит наилучшие результаты там, где мы готовы выйти за рамки привычного.</p>
           </div>
         </div>
-      </section>
+      </section> -->
       <!-- /mind-section -->
 
       <section class="role-section">
