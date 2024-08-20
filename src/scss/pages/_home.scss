@@ -82,7 +82,7 @@
       height: 54rem;
     }
     &__container {
-      padding-top: 4.56rem;
+      padding-top: 5rem;
       // padding-bottom: 4.56rem;
     }
     &__row {
@@ -160,10 +160,11 @@
 // help-section
 // =========================
 .help-section {
+  overflow: hidden;
   &__container {
     padding-top: 4.56rem;
     display: flex;
-    gap: 1.5rem;
+    gap: 1.4rem;
   }
   &__left {
     flex: 0 0 38.98%;
@@ -178,10 +179,113 @@
       margin-bottom: 2.31rem;
     }
   }
+  &__image {
+    width: 100%;
+    height: 0;
+    padding-bottom: 19.4375rem;
+    border-radius: 1.25rem;
+    overflow: hidden;
+  }
+}
 
+@media (max-width: 480px) {
+  .help-section {
+    &__container {
+      padding-top: 0;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    &__left {
+      flex: 0 0 100%;
+    }
+    &__section-title {
+      font-size: 3rem;
+      &:not(:last-child) {
+        margin-bottom: 0;
+      }
+    }
+    &__image {
+      display: none;
+    }
+  }
 }
 
 
 
 
 
+// =========================
+// mind-section
+// =========================
+.mind-section {
+  background-size: cover;
+  background-position-y: 100%;
+  &__container {
+    padding-top: 17.81rem;
+    padding-bottom: 6.31rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  &__section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: normal;
+    color: #fff;
+    text-align: center;
+    &:not(:last-child) {
+      margin-bottom: 7.19rem;
+    }
+  }
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 1.88rem;
+    width: 45.0625rem;
+    max-width: 100%;
+    margin: 0 auto;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+  }
+}
+
+@media (max-width: 991px) {
+  .mind-section {
+    background-size: 150%;
+    background-position: center 80%;
+  }
+}
+
+@media (max-width: 480px) {
+  .mind-section {
+    position: relative;
+    background-size: 350%;
+    background-position: center 95%;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5rem;
+      background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(0,70,156,0) 100%);
+    }
+    &__container {
+      padding-top: 12.37rem;
+      padding-bottom: 4.69rem;
+    }
+    &__section-title {
+      font-size: 2rem;
+      &:not(:last-child) {
+        margin-bottom: 5.06rem;
+      }
+    }
+    &__text {
+      gap: 1.88rem;
+      font-size: 1.25rem;
+    }
+  }
+}
