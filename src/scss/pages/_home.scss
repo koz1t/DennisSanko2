@@ -7,6 +7,7 @@
 // =========================
 .hero-section {
   position: relative;
+  overflow-x: hidden;
   .bg {
     height: 54rem;
   }
@@ -45,6 +46,9 @@
     &:not(:last-child) {
       margin-bottom: 2.94rem;
     }
+    b, strong {
+      font-weight: inherit;
+    }
   }
   &__image {
     position: relative;
@@ -65,10 +69,87 @@
       margin-top: 1.51rem;
     }
   }
+  @media (min-width: 481px) {
+    &__btn {
+      display: none;
+    }
+  }
 }
 
 @media (max-width: 480px) {
-  
+  .hero-section {
+    .bg {
+      height: 54rem;
+    }
+    &__container {
+      padding-top: 4.56rem;
+      // padding-bottom: 4.56rem;
+    }
+    &__row {
+      gap: 0;
+      &:not(:last-child) {
+        margin-bottom: 3.5rem;
+      }
+    }
+    &__content {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+    &__title {
+      font-size: 5rem;
+      &:not(:last-child) {
+        margin-bottom: 20rem;
+      }
+    }
+    &__text {
+      position: relative;
+      z-index: 2;
+      padding: 1.5rem 0px 3rem;
+      gap: 1.3rem;
+      font-size: 1.25rem;
+      &:not(:last-child) {
+        margin-bottom: 2.5rem;
+      }
+      &::before, &::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        z-index: -1;
+        width: 110%;
+      }
+      &::before {
+        bottom: 99%;
+        transform: translateX(-50%);
+        height: 3rem;
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none' width='361' height='46' viewBox='0 0 361 46' fill='none'%3E%3Cpath d='M1 1.5V45.5H360L1 1.5Z' fill='%233D565F' stroke='%233D565F'/%3E%3C/svg%3E") no-repeat center / 100% 100%;
+      }
+      &::after {
+        content: '';
+        top: 50%;
+        transform: translate(-50%, -50%);
+        height: 100%;
+        background: $secondaryColor;
+      }
+      b, strong {
+        color: $primaryColor;
+      }
+    }
+    &__btn {
+      width: 100%;
+      margin-top: 2.5rem;
+    }
+    &__image {
+      flex: 0 0 19rem;
+      padding-bottom: 28rem;
+      transform: translate(-95%, 35%);
+      border-radius: 0;
+    }
+    &__partners-list {
+      & + .hero-section__partners-list {
+        display: none;
+      }
+    }
+  }
 }
 
 

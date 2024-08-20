@@ -107,7 +107,7 @@
       <section class="hero-section">
         <div class="bg bg--hole">
           <picture>
-            <source srcset="images/hero-bg-mobile.jpg" media="(max-width: 480px)">
+            <!-- <source srcset="images/hero-bg-mobile.jpg" media="(max-width: 480px)"> -->
             <img src="images/hero-bg.png" alt="">
           </picture>
         </div>
@@ -116,8 +116,8 @@
             <div class="hero-section__content">
               <h1 class="hero-section__title">Коучинг первых лиц</h1>
               <div class="hero-section__text">
-                <p>23 года я помогаю собственникам менять их компании в разных сферах бизнеса на разных материках.</p>
-                <p>Одна из самых деликатных задач - работа на стыке бизнеса и личности собственника. Эта работа часто проходит в формате индивидуального коучинга.</p>
+                <p><b>23 года я помогаю собственникам менять их компании</b> в разных сферах бизнеса на разных материках.</p>
+                <p><b>Одна из самых деликатных задач - работа на стыке бизнеса и личности собственника.</b> Эта работа часто проходит в формате индивидуального коучинга.</p>
               </div>
               <div class="cards">
                 <ul class="cards__list">
@@ -138,10 +138,9 @@
                   <li class="cards__pagination-item"></li>
                   <li class="cards__pagination-item"></li>
                   <li class="cards__pagination-item"></li>
-                  <li class="cards__pagination-item"></li>
-                  <li class="cards__pagination-item"></li>
                 </ul>
               </div>
+              <button class="hero-section__btn btn btn--secondary">Договориться о встрече</button>
             </div>
             <div class="hero-section__image">
               <picture>
@@ -196,11 +195,10 @@
             <li class="partners-list__item"><a href="#" target="_blank"><img src="images/partners/suek.svg" alt=""></a></li>
             <li class="partners-list__item"><a href="#" target="_blank"><img src="images/partners/tatneft.svg" alt=""></a></li>
           </ul>
-          <!-- <script>const partnersList = document.querySelector('.partners-list');const images = partnersList.querySelectorAll('img');const canvas = document.createElement('canvas');const ctx = canvas.getContext('2d');const spacing = 50;const imgHeight = 100;let totalWidth = 0;let loadedImages = 0;images.forEach(img => {  img.onload = function () {    const aspectRatio = img.width / img.height;    const imgWidth = imgHeight * aspectRatio;    totalWidth += imgWidth + spacing;    loadedImages++;    if (loadedImages === images.length) {      createCanvas();    }  };});function createCanvas() {  canvas.width = totalWidth;  canvas.height = imgHeight;  let x = 0;  images.forEach(img => {    const aspectRatio = img.width / img.height;    const imgWidth = imgHeight * aspectRatio;    ctx.drawImage(img, x, 0, imgWidth, imgHeight);    x += imgWidth + spacing;  });  const imgData = canvas.toDataURL('image/png');  partnersList.style.backgroundImage = `url(${imgData})`;  const containerHeight = partnersList.clientHeight;  const proportionalWidth = (canvas.width / canvas.height) * containerHeight;  const styleSheet = document.styleSheets[0];  const keyframes = `    @keyframes scrollBackground {      from {        background-position: 0 0;      }       to {        background-position: -${proportionalWidth}px 0;}}`;  styleSheet.insertRule(keyframes, styleSheet.cssRules.length);  partnersList.style.animation = `scrollBackground 30s linear infinite`;}</script> -->
+          <script>const createScrollingBackground=(t,r="left")=>{const i=document.querySelector(t),l=i.querySelectorAll("img"),a=document.createElement("canvas"),c=a.getContext("2d"),g=100;let s=0,o=0;l.forEach(e=>{e.onload=()=>{var t=e.width/e.height,t=g*t;s+=50+t,++o===l.length&&n()}});const n=()=>{a.width=s,a.height=g;let o=0;l.forEach(t=>{var e=t.width/t.height,e=g*e;c.drawImage(t,o,0,e,g),o+=50+e});var t=a.toDataURL("image/png"),t=(i.style.backgroundImage=`url(${t})`,i.clientHeight),t=a.width/a.height*t,e=document.styleSheets[0];let n;"left"===r?n=`  @keyframes scrollBackground-left {  from { background-position: 0 0; }  to { background-position: -${t}px 0; }  }  `:"right"===r&&(n=`  @keyframes scrollBackground-right {  from { background-position: -${t}px 0; }  to { background-position: 0 0; }  }  `),e.insertRule(n,e.cssRules.length),i.style.animation="left"===r?"scrollBackground-left 30s linear infinite":"scrollBackground-right 30s linear infinite"}};</script>
           <script>
-            const createImageFromElements = (containerClass, animationClass, backgroundPosition) => { const containers = document.querySelectorAll(containerClass); containers.forEach(container => { const images = container.querySelectorAll('img'); const canvas = document.createElement('canvas'); const ctx = canvas.getContext('2d'); let totalWidth = 0; let maxHeight = 0; images.forEach(img => { img.onload = () => { totalWidth += img.width; if (img.height > maxHeight) { maxHeight = img.height; } if (totalWidth > 0 && maxHeight > 0) { canvas.width = totalWidth; canvas.height = maxHeight; let x = 0; images.forEach(img => { ctx.drawImage(img, x, 0); x += img.width; }); const dataURL = canvas.toDataURL(); container.style.backgroundImage = `url(${dataURL})`; container.style.backgroundPosition = backgroundPosition; container.classList.add(animationClass); } }; }); }); const styleSheet = document.styleSheets[0]; if (animationClass === 'scrollBackgroundLeft') { styleSheet.insertRule(` @keyframes scrollBackgroundLeft { 0% { background-position: 0 0; } 100% { background-position: -100% 0; } } `, styleSheet.cssRules.length); styleSheet.insertRule(` .scrollBackgroundLeft { animation: scrollBackgroundLeft 10s linear infinite; } `, styleSheet.cssRules.length); } else if (animationClass === 'scrollBackgroundRight') { styleSheet.insertRule(` @keyframes scrollBackgroundRight { 0% { background-position: 0 0; } 100% { background-position: 100% 0; } } `, styleSheet.cssRules.length); styleSheet.insertRule(` .scrollBackgroundRight { animation: scrollBackgroundRight 10s linear infinite; } `, styleSheet.cssRules.length); } }; 
-            createImageFromElements('#partners-list-1', 'scrollBackgroundLeft', '0 0'); 
-            createImageFromElements('#partners-list-2', 'scrollBackgroundRight', '0 0'); 
+            createScrollingBackground('#partners-list-1', 'left');
+            createScrollingBackground('#partners-list-2', 'right');
           </script>
         </div>
       </section>

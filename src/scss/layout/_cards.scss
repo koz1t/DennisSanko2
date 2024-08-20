@@ -3,7 +3,10 @@
     display: flex;
     flex-wrap: wrap;
     gap: 1.4rem;
-    transform: none !important;
+    transition: 0.5s all;
+    @media (min-width: 481px) {
+      transform: none !important;
+    }
   }
   &__item {
     @extend %flex-column;
@@ -55,13 +58,17 @@
     &__list {
       flex-wrap: nowrap;
     }
+    &__item {
+      flex: 0 0 18rem;
+      max-width: 100%;
+    }
     &__pagination {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 0.25rem;
       &:not(:first-child) {
-        margin-top: 2.25rem;
+        margin-top: 1.5rem;
       }
       &-item {
         width: 0.5rem;
