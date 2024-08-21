@@ -1,7 +1,0 @@
-[data-typing] {
-  &::after {
-    content: '';
-    border-right: 0.0625rem solid #fff;
-    animation: blink-caret 0.75s step-end infinite;
-  }
-}

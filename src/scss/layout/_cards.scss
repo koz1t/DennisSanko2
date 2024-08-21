@@ -49,6 +49,13 @@
       font-size: 1.5rem;
       font-weight: 700;
       line-height: normal;
+      @media (min-width: 481px) {
+        transition: 1s all;
+        &.--glowing {
+          background: $primaryColor;
+          color: #fff;
+        }
+      }
     }
   }
 

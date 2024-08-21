@@ -1,7 +1,6 @@
 const forms = document.querySelectorAll('.feedback-form__form');
 forms.forEach(form => {
   const requiredFields = form.querySelectorAll('.feedback-form__input.--req input');
-  const emailField = form.querySelector('input[name="email"]');
   const phoneInput = form.querySelector('input[name="phone"]');
   const customSelect = form.querySelector('.custom-select');
   const customSelectCurrent = customSelect.querySelector('.custom-select__current');
@@ -13,18 +12,6 @@ forms.forEach(form => {
   function validateField(field) {
     const inputWrapper = field.closest('.feedback-form__input');
     if (!field.value.trim()) {
-      inputWrapper.classList.add('--error');
-      feedbackMark.classList.add('--error');
-      feedbackMark.textContent = 'Ошибка! Проверьте правильность заполнения данных';
-    } else {
-      inputWrapper.classList.remove('--error');
-      checkFormValidity();
-    }
-  }
-
-  function validateEmailField() {
-    const inputWrapper = emailField.closest('.feedback-form__input');
-    if (!validateEmail(emailField.value)) {
       inputWrapper.classList.add('--error');
       feedbackMark.classList.add('--error');
       feedbackMark.textContent = 'Ошибка! Проверьте правильность заполнения данных';
@@ -67,8 +54,6 @@ forms.forEach(form => {
     field.addEventListener('input', () => validateField(field));
   });
 
-  emailField.addEventListener('blur', validateEmailField);
-  emailField.addEventListener('input', validateEmailField);
   phoneInput.addEventListener('blur', validatePhoneField);
   phoneInput.addEventListener('input', validatePhoneField);
 
@@ -80,10 +65,6 @@ forms.forEach(form => {
         isValid = false;
       }
     });
-    validateEmailField();
-    if (!validateEmail(emailField.value)) {
-      isValid = false;
-    }
     validatePhoneField();
     if (phoneInput.closest('.feedback-form__input').classList.contains('--error')) {
       isValid = false;
@@ -92,11 +73,6 @@ forms.forEach(form => {
       event.preventDefault();
     }
   });
-
-  function validateEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-  }
 
   function updatePhonePlaceholderAndMask() {
     const selectedOption = customSelect.querySelector('.custom-select__option.--current');

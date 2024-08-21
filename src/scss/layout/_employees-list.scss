@@ -3,43 +3,27 @@
   gap: 1rem;
   &__item {
     @extend %flex-column;
+    gap: 0.37rem;
   }
   &__name {
-    font-size: 2.5rem;
+    font-size: 2.625rem;
     font-weight: 800;
-    line-height: normal;
     color: $primaryColor;
   }
   &__post {
     font-size: 1.25rem;
-    font-weight: 700;
+    font-weight: 500;
     line-height: normal;
   }
-}
-
-@media (max-width: 991px) {
-  .employees-list {
-    &__name {
-      font-size: 2.2rem;
-    }
-  } 
 }
 
 @media (max-width: 480px) {
   .employees-list {
     &__name {
-      font-size: 2rem;
-    }
-  } 
-}
-
-@media (max-width: 360px) {
-  .employees-list {
-    &__name {
-      font-size: 1.85rem;
+      font-size: 2.3rem;
     }
     &__post {
       font-size: 1.15rem;
     }
-  } 
+  }
 }

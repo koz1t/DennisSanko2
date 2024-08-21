@@ -212,7 +212,7 @@
               <img src="images/help.jpg" alt="">
             </div>
           </div>
-          <div class="cards cards--v2">
+          <div class="cards cards--v2" data-autoswitch>
             <ul class="cards__list">
               <li class="cards__item"><p>Повышение личной эффективности</p></li>
               <li class="cards__item"><p>Решение сложных задач, требующих нетипичного подхода</p></li>
@@ -424,7 +424,7 @@
         <div class="contacts-section__container container">
           <div class="contacts-section__feedback">
             <h2 class="contacts-section__section-title section-title">Договориться о знакомстве</h2>
-            <button class="contacts-section__btn btn btn--secondary">Оставить заявку</button>
+            <button class="contacts-section__btn btn btn--secondary" data-popup-feedback>Оставить заявку</button>
           </div>
           <div class="contacts-section__contacts">
             <ul class="contacts-section__employees-list employees-list">
@@ -525,18 +525,14 @@
     <div class="popup__container container">
       <div class="popup__content">
         <div class="feedback-form">
-          <h2 class="feedback-form__title">Получить детальное предложение по участию в разработке HR стратегии</h2>
+          <h2 class="feedback-form__title">Договориться<br>о знакомстве</h2>
+          <h2 class="feedback-form__subtitle">Оставьте заявку и наш менеджер свяжется с вами</h2>
           <form class="feedback-form__form" action="/">
             <div class="feedback-form__inputs">
               <div class="feedback-form__inputs-row">
                 <div class="feedback-form__input --req">
                   <input type="text" name="name" placeholder="Имя*">
                 </div>
-                <div class="feedback-form__input --req">
-                  <input type="text" name="company" placeholder="Компания*">
-                </div>
-              </div>
-              <div class="feedback-form__inputs-row">
                 <div class="feedback-form__input --req">
                   <input type="text" name="phone" placeholder="Телефон*">
                   <div class="custom-select">
@@ -548,16 +544,12 @@
                     </ul>
                   </div>
                 </div>
-                <div class="feedback-form__input --req">
-                  <input type="text" name="email" placeholder="E-mail*">
-                </div>
               </div>
             </div>
             <div class="feedback-form__mark" data-default="* обязательные для заполнения поля">* обязательные для заполнения поля</div>
-            <button class="feedback-form__submit btn btn--arrow" type="submit">Получить детальное предложение</button>
+            <button class="feedback-form__submit btn btn--secondary" type="submit">Оставить заявку</button>
             <div class="feedback-form__success">
-              <b>Спасибо! Предложение отправлено.</b>
-              Проверьте указанный вами e-mail (или текст “с вами свяжутся наши операторы”)
+              <b>Спасибо! Наш менеджер вскоре свяжется с вами!</b>
             </div>
           </form>
         </div>

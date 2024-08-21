@@ -1,9 +1,20 @@
 .feedback-form {
   &__title {
-    font-size: 3rem;
+    font-size: 4rem;
     font-weight: 800;
-    line-height: 3.5rem; 
+    line-height: 4.5rem; 
     color: $primaryColor;
+    text-transform: uppercase;
+    text-align: center;
+    &:not(:last-child) {
+      margin-bottom: 0.62rem;
+    }
+  }
+  &__subtitle {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 2.4375rem;
     &:not(:last-child) {
       margin-bottom: 2.5rem;
     }
@@ -70,7 +81,7 @@
     line-height: normal;
     color: $primaryColor;
     b, strong {
-      font-size: 2.25rem;
+      font-size: 2rem;
       font-weight: 800;
     }
     &:not(:first-child) {
@@ -82,23 +93,36 @@
   }
 }
 
-@media (max-width: 991px) {
-  .feedback-form {
-    &__title {
-      font-size: 2.8rem;
-      line-height: 3rem; 
-      &:not(:last-child) {
-        margin-bottom: 2.3rem;
-      }
-    }
-  } 
-}
+// @media (max-width: 991px) {
+//   .feedback-form {
+//     &__title {
+//       font-size: 2.8rem;
+//       line-height: 3rem; 
+//       &:not(:last-child) {
+//         margin-bottom: 2.3rem;
+//       }
+//     }
+//   } 
+// }
 
 @media (max-width: 480px) {
   .feedback-form {
+    &__title, &__subtitle {
+      text-align: left;
+    }
     &__title {
-      font-size: 2.3rem;
-      line-height: 2.5rem; 
+      font-size: 3rem;
+      line-height: normal;
+      &:not(:last-child) {
+        margin-bottom: 1.25rem;
+      }
+    }
+    &__subtitle {
+      font-size: 1.75rem;
+      line-height: 1.75rem;
+      &:not(:last-child) {
+        margin-bottom: 1.88rem;
+      }
     }
     &__inputs {
       row-gap: 0.87rem;
@@ -116,8 +140,10 @@
       }
     }
     &__submit {
+      font-size: 1.5rem;
+      line-height: 150%;
       &:not(:first-child) {
-        margin-top: 1.25rem;
+        margin-top: 3.75rem;
       }
     }
     &__success {
@@ -132,14 +158,6 @@
   } 
 }
 
-@media (max-width: 360px) {
-  .feedback-form {
-    &__title {
-      font-size: 1.625rem;
-      line-height: 2.125rem;
-    }
-  } 
-}
 
 
 // CONTACT FORM 7
