@@ -218,8 +218,18 @@
 // mind-section
 // =========================
 .mind-section {
+  position: relative;
   background-size: cover;
   background-position-y: 100%;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5rem;
+    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(0,70,156,0) 100%);
+  }
   &__container {
     padding-top: 17.81rem;
     padding-bottom: 6.31rem;
@@ -261,18 +271,8 @@
 
 @media (max-width: 480px) {
   .mind-section {
-    position: relative;
     background-size: 350%;
     background-position: center 95%;
-    &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 5rem;
-      background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(0,70,156,0) 100%);
-    }
     &__container {
       padding-top: 12.37rem;
       padding-bottom: 4.69rem;
@@ -288,4 +288,45 @@
       font-size: 1.25rem;
     }
   }
+}
+
+
+
+
+
+// =========================
+// role-section
+// =========================
+.role-section {
+  background: $secondaryColor;
+  &__container {
+    padding-top: 7.75rem;
+    padding-bottom: 6.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__list {
+    flex: 0 0 50.43%;
+  }
+  &__image {
+    flex: 0 0 43.31%;
+  }
+}
+
+@media (max-width: 480px) {
+  .role-section {
+    &__container {
+      padding-top: 3rem;
+      padding-bottom: 5rem;
+      flex-direction: column-reverse;
+      gap: 3rem;
+    }
+    &__list {
+      flex: 0 0 50.43%;
+    }
+    &__image {
+      flex: 0 0 43.31%;
+    }
+  } 
 }
