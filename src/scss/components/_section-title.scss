@@ -20,6 +20,27 @@
       transform: rotateY(180deg);
     }
   }
+  &--trace {
+    display: flex;
+    align-items: center;
+    font-size: 4rem;
+    font-weight: 900;
+    line-height: normal;
+    text-transform: uppercase;
+    color: $secondaryColor;
+    .section-title__inner {
+      flex-shrink: 0;
+      max-width: 100%;
+    }
+    &::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 2.8125rem;
+      border-radius: 0rem 3.75rem 3.75rem 0rem;
+      background: linear-gradient(90deg, rgba(122, 193, 67, 0.00) 0%, #7AC143 100%);
+    }
+  }
 }
 
 @media (max-width: 480px) {
@@ -31,6 +52,9 @@
         background-size: cover;
         background-position-x: left;
       }
+    }
+    &--trace {
+      font-size: 3rem;
     }
   }
 }

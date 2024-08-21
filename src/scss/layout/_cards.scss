@@ -51,6 +51,44 @@
       line-height: normal;
     }
   }
+
+  &--v3 {
+    counter-reset: list;
+    gap: 1.25rem;
+    .cards__item {
+      justify-content: flex-start;
+      flex: 0 0 16.1225rem;
+      padding: 0;
+      @extend %flex-column;
+      gap: 0;
+      font-size: 1.25rem;
+      line-height: normal;
+      background: transparent;
+      &::before {
+        content: counter(list);
+        counter-increment: list;
+        font-family: "Raleway", sans-serif;
+        font-size: 4rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        color: $primaryColor;
+        text-transform: uppercase;
+      }
+      &:not(:last-child) {
+        .cards__item-inner {
+          flex-grow: 1;
+          padding-right: 0.56rem;
+          border-right: 0.0625rem solid #D4DDE0;
+        }
+      }
+      b, strong {
+        font-size: inherit;
+        font-weight: 700;
+        text-transform: none;
+      }
+    }
+  }
 }
 
 @media (max-width: 480px) {
@@ -93,6 +131,20 @@
         flex: 0 0 92.06%;
         min-height: 9.375rem;
         padding: 2.9375rem 1.875rem;
+      }
+    }
+    &--v3 {
+      gap: 0.56rem;
+      overflow: hidden;
+      .cards__item {
+        flex: 0 0 16.1225rem;
+        font-size: 1.25rem;
+        &:not(:last-child) {
+          .cards__item-inner {
+            padding-right: 0;
+            border-right: none;
+          }
+        }
       }
     }
   }
