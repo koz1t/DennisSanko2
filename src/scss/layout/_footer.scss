@@ -14,6 +14,7 @@
     }
   }
   &__nav {
+    max-width: 15rem;
     .nav__link {
       line-height: 1.25rem;
     }
@@ -28,7 +29,7 @@
     }
   }
   &__copy {
-    flex: 1 0 34.0625rem;
+    flex: 1 0 35rem;
     font-size: 0.75rem;
     line-height: 1.125rem;
     color: #8EA4AC;
@@ -80,11 +81,18 @@
       }
     }
     &__bottom {
-      gap: 3rem;
+      gap: 2rem;
+      flex-direction: column-reverse;
+      &:not(:first-child) {
+        padding-top: 2.5rem;
+      }
+    }
+    &__copy {
+      font-size: 0.95rem;
     }
     &__payments-list {
       flex-wrap: wrap;
-      justify-content: center;
+      justify-content: space-between;
     }
   } 
 }
