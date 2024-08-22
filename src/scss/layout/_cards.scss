@@ -26,6 +26,13 @@
       line-height: normal;
       text-transform: uppercase;
     }
+    @media (min-width: 481px) {
+      transition: 1.5s all;
+      &.--glowing {
+        color: #F6F6F6;
+        background: #5E757D;
+      }
+    }
   }
   &__pagination {
     display: none;

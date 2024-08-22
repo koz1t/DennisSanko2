@@ -5,5 +5,5 @@
 //@prepros-append tabs
 //@prepros-append validation-form
 //@prepros-append typing-text
-//@prepros-append quotation-list
+//@prepros-append glowing
 //@prepros-append popup
