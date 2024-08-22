@@ -369,6 +369,8 @@
     }
   }
   &__cards {
+    position: relative;
+    z-index: 4;
     width: 80%;
   }
   &__image {

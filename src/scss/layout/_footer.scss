@@ -14,7 +14,6 @@
     }
   }
   &__nav {
-    max-width: 15rem;
     .nav__link {
       line-height: 1.25rem;
     }
@@ -74,6 +73,7 @@
       gap: 1.88rem;
     }
     &__nav {
+      max-width: 15rem;
       .nav__list {
         flex-direction: column;
         align-items: flex-start;
