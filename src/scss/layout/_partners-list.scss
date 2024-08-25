@@ -6,8 +6,14 @@
   }
 }
 
-// @media (max-width: 480px) {
-//   .partners-list {
-//     height: 4rem;
-//   }
-// }
+@media (min-width: 481px) {
+  #partners-list-all {
+    display: none;
+  }
+}
+@media (max-width: 480px) {
+  #partners-list-1,
+  #partners-list-2 {
+    display: none;
+  }
+}

@@ -156,11 +156,11 @@
       transform: translate(-95%, 35%);
       border-radius: 0;
     }
-    &__partners-list {
-      & + .hero-section__partners-list {
-        display: none;
-      }
-    }
+    // &__partners-list {
+    //   & + .hero-section__partners-list {
+    //     display: none;
+    //   }
+    // }
   }
 }
 
