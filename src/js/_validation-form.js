@@ -8,8 +8,10 @@ forms.forEach(form => {
   const feedbackMark = form.querySelector('.feedback-form__mark');
   const defaultFeedbackText = feedbackMark.getAttribute('data-default');
   const countryCodeInput = form.querySelector('input[name="country-code"]');
+  const formSubmit = form.querySelector('.feedback-form__submit[type="submit"]');
+  const fakeFormSubmit = form.querySelector('.feedback-form__submit:not([type="submit"])');
 
-  function validateField(field) {
+  const validateField = field => {
     const inputWrapper = field.closest('.feedback-form__input');
     if (!field.value.trim()) {
       inputWrapper.classList.add('--error');
@@ -19,9 +21,9 @@ forms.forEach(form => {
       inputWrapper.classList.remove('--error');
       checkFormValidity();
     }
-  }
+  };
 
-  function validatePhoneField() {
+  const validatePhoneField = () => {
     const inputWrapper = phoneInput.closest('.feedback-form__input');
     const mask = phoneInput.placeholder;
     const value = phoneInput.value;
@@ -39,15 +41,15 @@ forms.forEach(form => {
       inputWrapper.classList.remove('--error');
       checkFormValidity();
     }
-  }
+  };
 
-  function checkFormValidity() {
+  const checkFormValidity = () => {
     const hasError = form.querySelectorAll('.feedback-form__input.--error').length > 0;
     if (!hasError) {
       feedbackMark.classList.remove('--error');
       feedbackMark.textContent = defaultFeedbackText;
     }
-  }
+  };
 
   requiredFields.forEach(field => {
     field.addEventListener('blur', () => validateField(field));
@@ -57,7 +59,7 @@ forms.forEach(form => {
   phoneInput.addEventListener('blur', validatePhoneField);
   phoneInput.addEventListener('input', validatePhoneField);
 
-  form.addEventListener('submit', function (event) {
+  fakeFormSubmit.addEventListener('click', event => {
     let isValid = true;
     requiredFields.forEach(field => {
       validateField(field);
@@ -69,22 +71,24 @@ forms.forEach(form => {
     if (phoneInput.closest('.feedback-form__input').classList.contains('--error')) {
       isValid = false;
     }
-    if (!isValid) {
+    if (isValid) {
+      formSubmit.click();
+    } else {
       event.preventDefault();
     }
   });
 
-  function updatePhonePlaceholderAndMask() {
+  const updatePhonePlaceholderAndMask = () => {
     const selectedOption = customSelect.querySelector('.custom-select__option.--current');
     const mask = selectedOption.getAttribute('data-mask');
     phoneInput.placeholder = mask;
     phoneInput.value = '';
     phoneInput.removeEventListener('input', maskInput);
     phoneInput.addEventListener('input', maskInput);
-    countryCodeInput.value = selectedOption.textContent; // Подставляем значение в скрытое поле
-  }
+    countryCodeInput.value = selectedOption.textContent;
+  };
 
-  function maskInput(e) {
+  const maskInput = e => {
     let value = e.target.value.replace(/\D/g, '');
     const mask = phoneInput.placeholder;
     let formattedValue = mask;
@@ -98,9 +102,9 @@ forms.forEach(form => {
       newCursorPosition = formattedValue.length;
     }
     e.target.setSelectionRange(newCursorPosition, newCursorPosition);
-  }
+  };
 
-  customSelect.addEventListener('click', function () {
+  customSelect.addEventListener('click', () => {
     customSelect.classList.toggle('--active');
   });
 
@@ -113,7 +117,7 @@ forms.forEach(form => {
     });
   });
 
-  document.addEventListener('click', function (event) {
+  document.addEventListener('click', event => {
     if (!customSelect.contains(event.target)) {
       customSelect.classList.remove('--active');
     }
@@ -123,7 +127,7 @@ forms.forEach(form => {
 
   const inputWrappers = form.querySelectorAll('.feedback-form__input');
   inputWrappers.forEach(wrapper => {
-    wrapper.addEventListener('click', function () {
+    wrapper.addEventListener('click', () => {
       const input = wrapper.querySelector('input');
       if (input) {
         input.focus();
