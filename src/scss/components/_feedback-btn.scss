@@ -8,7 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #907450;
+  background: $primaryColor;
   border-radius: 50%;
   transition: 0.3s all;
   svg {
@@ -16,7 +16,7 @@
     height: 50%;
   }
   &:hover {
-    background: darken(#907450, 5%);
+    background: darken($primaryColor, 5%);
   }
 }
 
