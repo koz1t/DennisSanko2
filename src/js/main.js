@@ -7,3 +7,4 @@
 //@prepros-append typing-text
 //@prepros-append glowing
 //@prepros-append popup
+//@prepros-append logos
